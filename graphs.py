@@ -1,15 +1,12 @@
 import csv
-
 import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.express as px
-
 from college_conversion import college_conversion_list
 
 games_file: str = "nfl-big-data-bowl-2023/games.csv"
 players_file: str = "nfl-big-data-bowl-2023/players.csv"
-
 
 def games_played() -> None:
     df = pd.read_csv(games_file)
@@ -26,7 +23,6 @@ def games_played() -> None:
     )
 
     plt.tight_layout()
-
 
 def matchups() -> None:
     df = pd.read_csv(games_file, usecols=["homeTeamAbbr", "visitorTeamAbbr"])
@@ -63,7 +59,6 @@ def age_to_weight() -> None:
     plt.title("Player Age vs Weight by Position")
     plt.legend()
 
-
 def player_stats():
     stats1: list = []
     stats2: list = []
@@ -85,7 +80,6 @@ def player_stats():
         plt.scatter(x, y)
         plt.show()
 
-
 def heatmaps():
     # Uses pandas the read file
     df = pd.read_csv("nfl-big-data-bowl-2023/players.csv")
@@ -106,6 +100,5 @@ def heatmaps():
         scope='usa'
 
     )
-
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     fig.show()
